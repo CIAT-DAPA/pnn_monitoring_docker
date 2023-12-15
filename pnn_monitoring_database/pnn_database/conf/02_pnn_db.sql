@@ -11,7 +11,7 @@
 CREATE TABLE IF NOT EXISTS public."Objective"
 (
     id serial PRIMARY KEY,
-    name character varying(255) COLLATE pg_catalog."default",
+    name character varying COLLATE pg_catalog."default",
     description character varying COLLATE pg_catalog."default" NULL,
     ext_id character varying(50) COLLATE pg_catalog."default" NULL
 );
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS public."Sirap"
 CREATE TABLE IF NOT EXISTS public."Guideline"
 (
     id serial PRIMARY KEY,
-    name character varying(255) COLLATE pg_catalog."default",
+    name character varying COLLATE pg_catalog."default",
     objective_id integer,
     sirap_id integer,
     CONSTRAINT "Guideline_objective_id_fkey" FOREIGN KEY (objective_id)
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS public."Guideline"
 CREATE TABLE IF NOT EXISTS public."Action"
 (
     id serial PRIMARY KEY,
-    name character varying(255) COLLATE pg_catalog."default",
+    name character varying COLLATE pg_catalog."default",
     action_indc character varying COLLATE pg_catalog."default" NULL,
     guideline_id integer,
     CONSTRAINT "Action_guideline_id_fkey" FOREIGN KEY (guideline_id)
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS public."Action"
 CREATE TABLE IF NOT EXISTS public."Milestone"
 (
     id serial PRIMARY KEY,
-    name character varying(255) COLLATE pg_catalog."default",
+    name character varying COLLATE pg_catalog."default",
     product_indc character varying COLLATE pg_catalog."default" NULL,
     obs character varying COLLATE pg_catalog."default" NULL, 
     action_id integer,
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS public."Milestone"
 CREATE TABLE IF NOT EXISTS public."Product"
 (
     id serial PRIMARY KEY,
-    name character varying(255) COLLATE pg_catalog."default",
+    name character varying COLLATE pg_catalog."default",
     ext_id character varying(50) COLLATE pg_catalog."default" NULL
 );
 
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS public."Product"
 CREATE TABLE IF NOT EXISTS public."Period"
 (
     id serial PRIMARY KEY,
-    name character varying(255) COLLATE pg_catalog."default"
+    name character varying COLLATE pg_catalog."default"
 );
 
 
@@ -135,7 +135,7 @@ CREATE TABLE IF NOT EXISTS public."Period"
 CREATE TABLE IF NOT EXISTS public."Detail"
 (
     id serial PRIMARY KEY,
-    name character varying(255) COLLATE pg_catalog."default",
+    name character varying COLLATE pg_catalog."default",
     amount double precision,
     quantity integer,
     date date,
@@ -168,7 +168,7 @@ CREATE TABLE IF NOT EXISTS public."Detail"
 CREATE TABLE IF NOT EXISTS public."Institution"
 (
     id serial PRIMARY KEY,
-    name character varying(255) COLLATE pg_catalog."default",
+    name character varying COLLATE pg_catalog."default",
     ext_id character varying(50) COLLATE pg_catalog."default" NULL
 
 );
