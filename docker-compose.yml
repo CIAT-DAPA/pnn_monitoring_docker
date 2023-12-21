@@ -21,6 +21,8 @@ services:
       context: ./pnn_monitoring_etl/
       dockerfile: Dockerfile
     restart: always
+    volumes:
+      - ${WORKSPACE_PATH}:/workdir/workspace/
     depends_on:
       - postgres
     ports:

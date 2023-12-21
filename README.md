@@ -11,6 +11,7 @@ This repository combines the PNN Database with an Extract, Transform, Load (ETL)
 The project is organized into two main components:
 
 1. **PNN Database - pnn_monitoring_database**
+
    - The database component includes SQL scripts and table structures for a PostgreSQL database related to the PNN project.
    - Tables such as Objective, Sirap, Guideline, and others store essential project information.
 
@@ -31,7 +32,17 @@ Make sure you have Docker and Docker Compose installed on your system.
 1. **Start the Database and ETL Services:**
 
    ```bash
+   windows = set WORKSPACE_PATH=/ruta_local
+   ubuntu = export WORKSPACE_PATH=/ruta_local
+   ```
+
+   ```bash
    docker-compose up -d
+   ```
+
+   ```bash
+   docker exec -it  pnn_monitoring_docker-python_app-1 sh
+   ```
 
 This command starts the PNN Database and initiates the ETL process.
 
@@ -40,5 +51,5 @@ For detailed information about the PNN Database and ETL process, refer to the re
 
 Repositories:
 
-  - https://github.com/CIAT-DAPA/pnn_monitoring_database
-  - https://github.com/CIAT-DAPA/pnn_monitoring_etl/tree/develop
+- https://github.com/CIAT-DAPA/pnn_monitoring_database
+- https://github.com/CIAT-DAPA/pnn_monitoring_etl/tree/develop
