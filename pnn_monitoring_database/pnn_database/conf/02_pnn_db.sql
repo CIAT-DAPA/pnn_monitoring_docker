@@ -321,7 +321,8 @@ CREATE VIEW public."view_until_detail" AS
     d.quantity,
     d.date,
     d.goal,
-    d.implemented_value
+    d.implemented_value,
+    d.amount * d.quantity * d.goal as total_value
    FROM "Sirap" s
      JOIN "Guideline" g ON s.id = g.sirap_id
      JOIN "Objective" o ON g.objective_id = o.id
@@ -336,7 +337,7 @@ CREATE VIEW public."view_until_detail" AS
 
 
 
-CREATE VIEW public."vista_milestone" AS
+CREATE VIEW public."view_milestone" AS
  SELECT s.id AS sirap_id,
     s.name AS sirap_name,
     s.description AS sirap_description,
@@ -400,6 +401,8 @@ SELECT
     d.product_id,
     pr.name AS product_name,
     d.implemented_value,
+    d.amount * d.quantity as value_per_insumo,
+    d.amount * d.quantity * d.goal as value_per_goal,
     CASE
         WHEN COUNT(DISTINCT y.value) = 0 THEN NULL
         ELSE ARRAY_AGG(DISTINCT y.value)
