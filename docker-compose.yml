@@ -9,9 +9,9 @@ services:
       pnn_network:
         ipv4_address: 192.168.1.2
     environment:
-      - POSTGRES_DB=pnn
-      - POSTGRES_USER=pnn_user
-      - POSTGRES_PASSWORD=123
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
     restart: always
     ports:
       - "5432:5432"
@@ -21,6 +21,12 @@ services:
       context: ./pnn_monitoring_etl/
       dockerfile: Dockerfile
     restart: always
+    environment:
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=192.168.1.2
+      - DB_PORT=5432
+      - DB_NAME=${DB_NAME}
     volumes:
       - ${WORKSPACE_PATH}:/workdir/workspace/
     depends_on:

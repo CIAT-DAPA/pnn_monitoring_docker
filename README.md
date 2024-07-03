@@ -31,9 +31,20 @@ Make sure you have Docker and Docker Compose installed on your system.
 
 1. **Start the Database and ETL Services:**
 
+   Windows
    ```bash
-   windows = set WORKSPACE_PATH=/ruta_local
-   ubuntu = export WORKSPACE_PATH=/ruta_local
+   set WORKSPACE_PATH=/ruta_local
+   set DB_USER=mi_usuario
+   set DB_PASSWORD=mi_contraseña
+   set DB_NAME=mi_base_de_datos
+   ```
+
+   Ubuntu
+   ```bash
+   export WORKSPACE_PATH=/ruta_local
+   export DB_USER=mi_usuario
+   export DB_PASSWORD=mi_contraseña
+   export DB_NAME=mi_base_de_datos
    ```
 
    ```bash
